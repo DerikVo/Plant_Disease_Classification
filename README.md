@@ -19,17 +19,23 @@ Adhikari et al (2019) state the most common method of prevention of blight is th
 For our project we will build two neural networks for the purposes of classification. [Model 1](./notebooks/PlantVillageModeling.ipynb) will be used to determine if a plant is healthy or has blight, so we can use that for transfer learning. [Model 2](./notebooks/PlantVillageModeling.ipynb) Will then be used to determine what stage of blight a plant is in.
 
 The model will be evaluated using a confusion matrix, but we will primarily be focusing on the recall score, specifically the false negatives. Missing early stages of blight can have disastrous effects on crop yield due to spread. By the time late stage blight has set in, then it will be too late. Therefore our focus will be the recall score of early blight. 
-
+_________________________________________________________________________________
 
 ## EDA
 
-For our [EDA process](./notebooks/PlantVillageEDA.ipynb) we used Google google Colaboratory. To reproduce our results users will need to download the tomatoes dataset from the [PlanVillage_data Set](https://github.com/spMohanty/PlantVillage-Dataset/tree/master/raw/color) and mount it to their drive.
+For our [EDA process](./notebooks/PlantVillageEDA.ipynb) we used Google google Colaboratory. To reproduce our results users will need to download the tomatoes dataset from the [PlanVillage_data Set](https://www.kaggle.com/datasets/emmarex/plantdisease) and mount it to their drive. The structure needs to have the master folder as "[plant name]" and sub folders should be "[{plant name}\_[status]\_[status]]" for example. **Tomato** folder should have the sub folders **Tomato_healthy**, **Tomato_Early_blight**, **Tomato_Late_blight**. File names are case sensitive as well.
 
-During the EDA phase we downloaded the tomato dataset from [PlanVillage](https://github.com/spMohanty/PlantVillage-Dataset/tree/master/raw/color) where we found a total of 4500 images the distribution of images is as follow.
-
+During the EDA phase we downloaded the tomato dataset from [PlanVillage](https://www.kaggle.com/datasets/emmarex/plantdisease) where we found a total of 4500 images the distribution of images is as follow.
+### Tomatoes
 |Healthy|Early Blight|Late Blight|
 |-----|-----|-----|
 |1000 Images|1591 Images|1909 Images|
+
+### Potatoes
+
+|Healthy|Early Blight|Late Blight|
+|-----|-----|-----|
+|152 Images|1000 Images|1000 Images|
 
 After loading our data we wanted to take the average pixel values of each class since the images were separated in their relative classes.
 
@@ -39,6 +45,13 @@ Although not immediately obvious there is already a difference that can be obser
 
 The next step was to reorganize the file data set files into two categories one to determine if a plant is healthy or has blight, and two to determine if a plant has early blight or has late blight. These two categories will be used to train the two models mentioned earlier. The following provides insight on the structure of our data.
 
+_______________________________________________________________________________________
+
+## Modeling
+
+For our modeling stage we split out data into 2 datasets for modeling. Dataset one contains healthy plants vs the combination of early and late blight. On the other hand, Dataset two contains early blight vs late blight. The purpose of this was to utilize transfer learning to identify blight and identify the stage of blight. Therefore one there will be a separate dataset for modeling.  
+
+### Tomatoes
 [Healthy Vs Blight](https://github.com/DerikVo/DSI_project_4_plant_disease/tree/yasser/data/Tomato/Model_1_Healthy_Vs_Blight) consist of:
 
 |[Tomato_Blight](https://github.com/DerikVo/DSI_project_4_plant_disease/tree/yasser/data/Tomato/Model_1_Healthy_Vs_Blight/Tomato_Blight)|[Tomato Healthy](https://github.com/DerikVo/DSI_project_4_plant_disease/tree/yasser/data/Tomato/Model_1_Healthy_Vs_Blight/Tomato_healthy)|
@@ -51,3 +64,9 @@ The next step was to reorganize the file data set files into two categories one 
 |-----|-----|
 |1591 images|1909 Images|
 
+### Potatoes
+
+
+
+
+________________________________________________________________________
