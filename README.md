@@ -39,7 +39,7 @@ During the EDA phase we downloaded the tomato dataset from [PlanVillage](https:/
 
 After loading our data we wanted to take the average pixel values of each class since the images were separated in their relative classes.
 
-**Added images of pixel averages** 
+**Added images of examples** 
 
 Although not immediately obvious there is already a difference that can be observed in the averaging of the pixel values of the three different classes. The healthy leaves show a bit more of a lighter green and shine. This could be indicative that healthier leaves reflect light better. The early blight leaves averaged out the darkest. This could be indicative that the loss of health lead to less reflectiveness in the leaves. The dark patches were also lowering the average value as well. The Late Blight, however, averaged out even lighter, but the it still doesn't have as much a reflectiveness to it, and the color value started to shift to yellow, presumably from all the green and brown color values from mixing.
 
@@ -49,24 +49,34 @@ ________________________________________________________________________________
 
 ## Modeling
 
-For our modeling stage we split out data into 2 datasets for modeling. Dataset one contains healthy plants vs the combination of early and late blight. On the other hand, Dataset two contains early blight vs late blight. The purpose of this was to utilize transfer learning to identify blight and identify the stage of blight. Therefore one there will be a separate dataset for modeling.  
+For our modeling stage we have two separate notebooks one for our [Tomato](./notebooks/02_plant_village_potato_modeling.ipynb) which built 9 models to classify if a tomato is healthy or if its in early or late stages of blight. For our second model for [Potatoes](./notebooks/02_plant_village_tomato_modeling.ipynb) we built 5 models. 
+### Tomato
 
-### Tomatoes
-[Healthy Vs Blight](https://github.com/DerikVo/DSI_project_4_plant_disease/tree/yasser/data/Tomato/Model_1_Healthy_Vs_Blight) consist of:
+||Precision|recall|f1|
+|------|-----|-----|-----|
+|Potato early blight|.87|.78|.82|
+|Potato late blight|.89|.94|.92|
+|Potato healthy|.99|.99|.99|
 
-|[Tomato_Blight](https://github.com/DerikVo/DSI_project_4_plant_disease/tree/yasser/data/Tomato/Model_1_Healthy_Vs_Blight/Tomato_Blight)|[Tomato Healthy](https://github.com/DerikVo/DSI_project_4_plant_disease/tree/yasser/data/Tomato/Model_1_Healthy_Vs_Blight/Tomato_healthy)|
-|-----|-----|
-|2292 images|1591 Images|
+For our tomato model our best accuracy score was 96%, for our validation out score was 92%; However, it had a low recall score for early blight (.78). Which is not a result we want because the goal of our model was to limit the number of false negatives for early blight being categorized as healthy.
 
-[Early Vs Late Blight](https://github.com/DerikVo/DSI_project_4_plant_disease/tree/yasser/data/Tomato/Model_2_Early_Vs_Late_Blight) consist of:
 
-|[Early_Blight](https://github.com/DerikVo/DSI_project_4_plant_disease/tree/yasser/data/Tomato/Model_2_Early_Vs_Late_Blight/Tomato_Early_blight)|[Late Blight](https://github.com/DerikVo/DSI_project_4_plant_disease/tree/yasser/data/Tomato/Model_2_Early_Vs_Late_Blight/Tomato_Late_blight)|
-|-----|-----|
-|1591 images|1909 Images|
 
 ### Potatoes
 
+||Precision|recall|f1|
+|------|-----|-----|-----|
+|Potato early blight|.99|.96|.97|
+|Potato late blight|.94|.97|.95|
+|Potato healthy|.92|.80|.86|
 
+For our potato model our best accuracy was 99% for the training set and 95% for our validation set. This data set had a relatively good recall score (97%) for early blight; however, it should be noted that there were severe class imbalances. In this set there were only 152 healthy images compared to 1000 early blight images and 1000 late blight images. Because of this imbalance this model may not generalize well when presented with new data.
 
 
 ________________________________________________________________________
+
+## Conclusion
+
+Our model for tomatoes performs pretty well when measuring for accuracy; however, when measuring for recall the model suffers with correctly classifying tomato leaves with early blight. This is a significant issue because that can have detrimental effects on farmers if an disease is left untreated and spreads to other crops.
+
+When evaluating our model for potatoes it had similar performances to out tomato model. The recall score is slightly higher when classifying potatoes with early blight (.96 against .78)
