@@ -54,13 +54,25 @@ For our modeling stage we have two separate notebooks one for our [Tomato](./not
 
 ### Tomato
 
+||Precision|recall|F1|
+|------|-----|-----|-----|
+|Potato early blight|.88|.77|.82|
+|Potato late blight|.88|.94|.91|
+|Potato healthy|.99|.99|.99|
+
 For our tomato model our best accuracy score was ~96%, for our validation out score was 92%; However, it had a low recall score for early blight (.78). Which is not a result we want because the goal of our model was to limit the number of false negatives for early blight being categorized as healthy.
 
 
 
 ### Potatoes
 
-For our potato model our best accuracy was ~99% for the training set and ~95% for our validation set. This data set had a relatively good recall score (\~97%) for early blight; however, it should be noted that there were severe class imbalances. In this set there were only 152 healthy images compared to 1000 early blight images and 1000 late blight images. Because of this imbalance this model may not generalize well when presented with new data. 152 images is also way to low to get any decent training for a solid model. This can be fixed by getting more images in the future, or by creating and saving augmentations and adding them to the dataset.
+||Precision|recall|F1|
+|------|-----|-----|-----|
+|Potato early blight|.98|.98|.98|
+|Potato late blight|.96|.97|.97|
+|Potato healthy|.96|.80|.87|
+
+For our potato model our best accuracy was ~98% for the training set and ~91% for our validation set. This data set had a relatively good recall score (~97%) for early blight; however, it should be noted that there were severe class imbalances. In this set there were only 152 healthy images compared to 1000 early blight images and 1000 late blight images. Because of this imbalance this model may not generalize well when presented with new data. 152 images is also way to low to get any decent training for a solid model. This can be fixed by getting more images in the future, or by creating and saving augmentations and adding them to the dataset.
 
 
 ________________________________________________________________________
