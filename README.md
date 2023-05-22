@@ -41,7 +41,6 @@ During the EDA phase we downloaded the tomato dataset from [PlantVillage](https:
 
 After loading our data we wanted to take the average pixel values of each class since the images were separated in their relative classes.
 
-**Added images of examples** 
 
 Although not immediately obvious there is already a difference that can be observed in the averaging of the pixel values of the three different classes. The healthy leaves show a bit more of a lighter green and shine. This could be indicative that healthier leaves reflect light better. The early blight leaves averaged out the darkest. This could be indicative that the loss of health lead to less reflectiveness in the leaves. The dark patches were also lowering the average value as well. The Late Blight, however, averaged out even lighter, but the it still doesn't have as much a reflectiveness to it, and the color value started to shift to yellow, presumably from all the green and brown color values from mixing.
 
