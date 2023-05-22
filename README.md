@@ -16,7 +16,7 @@ The USDA defines blight as a fungus-like pathogen that destroys a plant's leaves
 
 Adhikari et al (2019) state the most common method of prevention of blight is through screening. However, they state that this can be labor intensive to identify and treat blight. Meeting this need the goal of this project is to use a neural network to correctly classify if a tomato plant is healthy, in the early stages of blight, or in the late stages of blight. With this tool we can pair it with machines to identify when a plant needs intervention. Furthermore, we can also work with engineers to build a machine to automatically apply treatment to infected plants.
 
-For our project we will build two neural networks for the purposes of classification. Model one will be classify [Tomatoes](./notebooks/02_plant_village_tomato_modeling.ipynb) and will be used to determine if a tomato is healthy or has blight and which stage. Model two will be classify [Potatoes](./notebooks/02_plant_village_tomato_modeling.ipynb) and will be used to determine if a potato. For now these models will be used to independently classify their respective plants. In the future these models would be used for transfer learning to detect blight for other plants.
+For our project we will build two neural networks for the purposes of classification. Model one will be classify [Tomatoes](./notebooks/02_plant_village_tomato_modeling.ipynb) and will be used to determine if a tomato is healthy or has blight and which stage. Model two will be classify [Potatoes](./notebooks/02_plant_village_tomato_modeling.ipynb) and will be used to determine the same information for potatoes.
 
 The model will be evaluated using a confusion matrix, but we will primarily be focusing on the recall score, specifically limiting the number of false negatives. Missing early stages of blight can have disastrous effects on crop yield due to spread. By the time late stage blight has set in, then it will be too late. Therefore our focus will be the recall score of early blight. 
 _________________________________________________________________________________
@@ -50,27 +50,16 @@ ________________________________________________________________________________
 ## Modeling
 
 For our modeling stage we have two separate notebooks one for our [Tomato](./notebooks/02_plant_village_potato_modeling.ipynb) which built 9 models to classify if a tomato is healthy or if its in early or late stages of blight. For our second model for [Potatoes](./notebooks/02_plant_village_tomato_modeling.ipynb) we built 5 models. 
+
 ### Tomato
 
-||Precision|recall|F1|
-|------|-----|-----|-----|
-|Potato early blight|.87|.78|.82|
-|Potato late blight|.89|.94|.92|
-|Potato healthy|.99|.99|.99|
-
-For our tomato model our best accuracy score was 96%, for our validation out score was 92%; However, it had a low recall score for early blight (.78). Which is not a result we want because the goal of our model was to limit the number of false negatives for early blight being categorized as healthy.
+For our tomato model our best accuracy score was ~96%, for our validation out score was 92%; However, it had a low recall score for early blight (.78). Which is not a result we want because the goal of our model was to limit the number of false negatives for early blight being categorized as healthy.
 
 
 
 ### Potatoes
 
-||Precision|recall|F1|
-|------|-----|-----|-----|
-|Potato early blight|.99|.96|.97|
-|Potato late blight|.94|.97|.95|
-|Potato healthy|.92|.80|.86|
-
-For our potato model our best accuracy was 99% for the training set and 95% for our validation set. This data set had a relatively good recall score (97%) for early blight; however, it should be noted that there were severe class imbalances. In this set there were only 152 healthy images compared to 1000 early blight images and 1000 late blight images. Because of this imbalance this model may not generalize well when presented with new data.
+For our potato model our best accuracy was ~99% for the training set and ~95% for our validation set. This data set had a relatively good recall score (\~97%) for early blight; however, it should be noted that there were severe class imbalances. In this set there were only 152 healthy images compared to 1000 early blight images and 1000 late blight images. Because of this imbalance this model may not generalize well when presented with new data. 152 images is also way to low to get any decent training for a solid model. This can be fixed by getting more images in the future, or by creating and saving augmentations and adding them to the dataset.
 
 
 ________________________________________________________________________
