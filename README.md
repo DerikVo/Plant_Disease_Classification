@@ -14,11 +14,10 @@ Yasser Siddiqui
 
 The USDA defines blight as a fungus-like pathogen that destroys a plant's leaves, stem, fruit, or tubers. Adhikari et al. (2019) explains blight reproduces asexually, and that it essentially goes dormant in winter and infects plants in warm and humid conditions. They state the condia, or a spore [Britannica](https://www.britannica.com/science/conidium), usually germinates at 8 to 32 celsius. Once these fungal spores grow they will eventually kill the host cells by producing toxins. These toxins and display symptoms such as "dark, small, necrotic, coalescing, and concentric lesions...on the leaf surface" (Adhikari et al., (2019). Additional, they state that lesions also appear on the stem and can extend to the flesh of the fruit.
 
-Adhikari et al (2019) state the most common method of prevention of blight is through screening. However, they state that this can be labor intensive to identify and treat blight. Meeting this need the goal of this project is to use a neural network to correctly classify if a tomato plant is healthy, in the early stages of blight, or in the late stages of blight. With this tool we can pair it with machines to identify when a plant needs intervention. Furthermore, we can also work with engineers to build a machine to automatically apply treatment to infected plants.
 
 ## Problem Statement:
 
-Because Blight causes such a significant loss in crop loss early detection is paramount. Due to the cost of manual screening we need an effective way to identify the early stages of blight.
+Adhikari et al (2019) state the most common method of prevention of blight is through screening. However, they state that this can be labor intensive to identify and treat blight. Because Blight causes such a significant loss in crop loss early detection is paramount. Due to the cost of manual screening we need an effective way to identify the early stages of blight.
 For our project we will build two neural networks for the purposes of classification. Model one will be classify [Tomatoes](./notebooks/02_plant_village_tomato_modeling.ipynb) and will be used to determine if a tomato is healthy or has blight and which stage. Model two will be classify [Potatoes](./notebooks/02_plant_village_tomato_modeling.ipynb) and will be used to determine the same information for potatoes.
 
 The model will be evaluated using a confusion matrix, but we will primarily be focusing on the recall score, specifically limiting the number of false negatives. Missing early stages of blight can have disastrous effects on crop yield due to spread. By the time late stage blight has set in, then it will be too late. Therefore our focus will be the recall score of early blight. 
@@ -80,3 +79,5 @@ Overall, our models did well when measuring accuracy, but when looking at recall
 For our next steps we can use our two models to use transfer learning to build a model that incorporates information learned from both plants to help classify if a plant has blight.
 
 Additionally we can build a website that would allow users to submit their images to increase the available data points to train on. This would hopefully address class imbalances as we get more people to crowd source their data. 
+
+With this improved model we can pair it with machines to identify when a plant needs intervention. Furthermore, we can also work with engineers to build a machine to automatically apply treatment to infected plants.
